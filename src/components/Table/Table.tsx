@@ -16,7 +16,7 @@ export const Table: React.FC = () => {
   const users = useAppSelector<User[]>(state => state.users.users);
   const sortType = useAppSelector<SortType>(state => state.sortType.sortType);
   const { editableId, editableCell } = useAppSelector(state => state.editable);
-  const { tablePage, totalItems} = useAppSelector(state => state.tableData);
+  const { tablePage } = useAppSelector(state => state.tableData);
 
 
   useEffect(() => {
@@ -72,7 +72,7 @@ export const Table: React.FC = () => {
       }
 
       case 'birthday_date': {
-        const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+        const dateRegex = /^(?:19|20)\d\d-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12][0-9]|3[01])$/;
 
         return dateRegex.test(newValue);
       }
@@ -178,7 +178,7 @@ export const Table: React.FC = () => {
                 type="text"
                 onBlur={(e) => {
                   handleEditableCell(null, null);
-                  changeCellValue(user.id, 'birthday_date', "2022-12-12")
+                  changeCellValue(user.id, 'birthday_date', e.target.value)
                 }}
                 autoFocus
                 defaultValue={user.birthday_date}
