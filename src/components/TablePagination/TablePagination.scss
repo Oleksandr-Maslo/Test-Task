@@ -1,0 +1,34 @@
+.pagination {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  min-width: 600px;
+  max-width: 800px;
+
+  &__li {
+    align-items: center;
+    margin: 5px;
+    list-style-type: none;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    border: 1px solid #333;;
+    height: 30px;
+    width: 30px;
+    text-decoration: none;
+    color: black;
+  }
+};
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.active {
+  color: #fff;
+  background-color: #333;
+}
